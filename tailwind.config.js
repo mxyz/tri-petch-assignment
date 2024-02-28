@@ -9,16 +9,28 @@ module.exports = {
 ],
   theme: {
     screens: {
-      'sm': '320px',
+      'sm': {'max': '768px'},
       // => @media (min-width: 320px) { ... }
 
-      'md': '768px',
-      // => @media (min-width: 768px) { ... }
+      'md': {'min': '769px', 'max': '1530px'},
 
-      'lg': '1920px',
-      // => @media (min-width: 1024px) { ... }
+      'lg': {'min': '1531px'},
     },
     extend: {
+      fontFamily: "Roboto",
+      lineHeight: {
+        'tighter': 1.1718, // Define your custom line height ratio
+      },
+      colors: {
+        transparent: "transparent",
+        systemBlack: "#000",
+        systemWhite: "#fff",
+        systemGray: "#E7E7E7",
+        systemDarkGray: "#C2C2C2",
+        systemLightPurple: "#F5F4F9",
+        systemPurple: "#5E3DB3",
+        systemDarkPurple: "#090C35",
+      },
       space: {
         0: '0', // 0px
         1: rem(1),
@@ -103,6 +115,9 @@ module.exports = {
         34: rem(34),
         36: rem(36),
       },},
+  },
+  corePlugins: {
+    lineHeight: ['responsive', 'tighter'], // Use 'tighter' as the default line height
   },
   plugins: [],
 }
